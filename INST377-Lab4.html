@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>INST377 - Lab 4</title>
+    <link rel="stylesheet" href="INST377-Lab4.css" />
+  </head>
+
+  <body>
+
+    <h1 id="heading">INST377 - Lab 4</h1>
+      <!-- Alert me Section -->
+      <div class="alertBox">
+        <form name="NameForm" onsubmit="return nameAlert()">
+          <label for="Name">Name:</label>
+          <input type="text" id="Name" required />
+          <input type="submit" value="Alert Me!" />
+        </form>
+      </div>
+    
+      <!-- Change Color Section -->
+      <div class="colorBox">
+          <button onclick="changeColor()">Change Color</button>
+      </div>
+      <br>
+      
+      <!-- Text tester Section -->
+      <div class="textTest-box">
+        <form name="TextTest" onsubmit="return textTester()">
+          <label for="Text">Text Tester:</label>
+          <input type="text" id="Text" />
+          <input type="submit" value="Validate Text" />
+        </form>
+      </div>
+      
+      <!-- Add Text Section -->
+      <div class="addText-box">
+        <button onclick="addText()">Add Text</button>
+      </div>
+      
+   
+    <!-- JavaScript Code -->
+    <script type="text/javascript">
+      
+      function nameAlert() {
+        var name = document.getElementById("Name").value;
+        alert("Hi " + name + "!");
+      }
+
+      function changeColor() {
+        if (document.body.style.background == "pink") {
+          document.body.style.background = "lightblue";
+        } else {
+        document.body.style.background = "pink";
+        }
+      }
+
+      function textTester() {
+        var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+        if (validation.test(document.TextTest.Text.value)) {
+          alert("No special characters!");
+
+          return false;
+        }
+      }
+
+      function addText() {
+        document
+          .getElementById("heading")
+          .insertAdjacentText("beforeend", " Add Text");
+      }
+    </script>
+  </body>
+</html>
